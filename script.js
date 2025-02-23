@@ -7,6 +7,11 @@ function increaseScore(){
     document.querySelector("#scoreval").textContent = score;
 }
 
+function decreaseScore(){
+    score -= 5;
+    document.querySelector("#scoreval").textContent = score;
+}
+
 function getNewHit(){
     hitrn = Math.floor(Math.random() * 10);
     document.querySelector("#hitval").textContent = hitrn;
@@ -40,9 +45,12 @@ document.querySelector("#pbtm").addEventListener("click", function(dets){
     var clicknum = Number(dets.target.textContent);
     if (hitrn === clicknum){
         increaseScore();
-        getNewHit();
-        makeBubble();
     }
+    else {
+        decreaseScore();
+    }
+    getNewHit();
+    makeBubble();
 });
 
 runTimer();
